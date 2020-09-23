@@ -7,4 +7,4 @@ before_install:
   - docker build -t magiclost/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run magiclost/docker-react npm run test -- --coverage
+  - docker run magiclost/docker-react npm test -- --coverage --watchAll=false
