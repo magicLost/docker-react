@@ -14,6 +14,8 @@ RUN npm run build
 # Run phase
 FROM nginx
 
+EXPOSE $PORT
+
 COPY --from=builder /app/build /usr/share/nginx/html
 
 COPY default.conf.template /etc/nginx/conf.d/default.conf.template
