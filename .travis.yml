@@ -1,13 +1,13 @@
 sudo: required
 services:
-- docker
+  - docker
 before_install:
-- docker build -t magiclost/docker-react -f Dockerfile.dev .
+  - docker build -t magiclost/docker-react -f Dockerfile.dev .
 script:
-- docker run magiclost/docker-react npm test -- --coverage --watchAll=false
+  - docker run magiclost/docker-react npm test -- --coverage --watchAll=false
 deploy:
   provider: heroku
   api_key:
-    secure: lLgNt6unKTXB6D06TmUW7/SiZ3QuUEQORR4o1f0weRg3hD/cwUinPjHDaoaLT2sJv87ePT1DfcJ3Bn35w5i0+ZynQ8MquSOIGrvUANI6QgUEHSqC+wdysYRRN9JbizfzXA8LxFPdH6gWnCi8FoVmOEmgMAwkd2k0v+DTtyQR24055LsV6DlbsT6M7gG/iUjd91hw+VGDryk0Gs8Gd4i4O6R4Je5r5CR0P5rGoSlllPFcYAu9aV9/E7FVrdsSGSEUNTKVdEZq00tfwPUEMcGZHRazy90SkFLLoGjZvxPlBt3UdgaP6Ns/O7Kf5eszBRvwj/hWLSd7awpjTBtK+nML+7P/ja1Vs/VVUmO8ERPkA/pNZCUmydoTcQESyQkZtXSmkfnFCagN2lCkjr8tR9CTnisJkxRlwEHwvU/pSMdoHPfFF41pGbR7oOTo4y7xJZLHOB8jSvAgMveVHrGlzi3/7Deytf7aZWFd2M6taJqPqI/Q+uM7PualsK6I/Hg+HW4t4vnMjB6V6xawjIjl6HBbur06hErLMpbEe3S0V7a85hx/XBS8rkddUIXQIFzGx4EoRvwWmXd7Zcpo+CR/P07pg5r7gTupFz7cZ83GvxSTxHZm/z99pNbWweDrQJAL7LH44hqGVXz7Gq206rP2OVyBG3jojhrakwkVUrk4XrZ1x1k=
+    secure: $API_KEY
   app: lizzygram
   on: master
